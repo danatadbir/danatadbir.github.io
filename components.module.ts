@@ -11,11 +11,11 @@ import { MapComponent } from './map/map.component';
 import { TableComponent } from './table/table.component';
 import { LineChartComponent } from './line-chart/line-chart.component';
 
-import { HostDirective } from '../../utils/Directive/host.directive';
-import { BoxDirective } from '../../utils/Directive/box.directive';
-import { TextDirective } from '../../utils/Directive/text.directive';
-import { ColorDirective } from '../../utils/Directive/color.directive';
-import { BorderDirective } from '../../utils/Directive/border.directive';
+import { HostDirective } from './Directive/host.directive';
+import { BoxDirective } from './Directive/box.directive';
+import { TextDirective } from './Directive/text.directive';
+import { ColorDirective } from './Directive/color.directive';
+import { BorderDirective } from './Directive/border.directive';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -44,11 +44,11 @@ import { PieChartComponent } from './pie-chart/pie-chart.component';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { ComponentConfigDialogComponent } from 'src/app/ct-shared/data-access/component/component-config-dialog/component-config-dialog.component';
-import { DynamicFormBuilderComponent } from '../dynamic-form-builder/dynamic-form-builder.component';
+// import { DynamicFormBuilderComponent } from '../dynamic-form-builder/dynamic-form-builder.component';
 import { ClusterColumnChartComponent } from './cluster-column-chart/cluster-column-chart.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatBadgeModule } from '@angular/material/badge';
-import { ApplicationSearchableChooserComponent } from '../application-searchable-chooser/application-searchable-chooser.component';
+// import { ApplicationSearchableChooserComponent } from '../application-searchable-chooser/application-searchable-chooser.component';
 import { SharedModule } from '@shared/shared.module';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
@@ -98,7 +98,7 @@ const materials = [
     ChangeSourceComponent,
     PieChartComponent,
     ComponentConfigDialogComponent,
-    ApplicationSearchableChooserComponent,
+    // ApplicationSearchableChooserComponent,
   ],
   imports: [
     CommonModule,
@@ -107,9 +107,11 @@ const materials = [
     DndModule,
     materials,
     GoogleMapsModule,
-    DynamicFormBuilderComponent,
+    // DynamicFormBuilderComponent,
     SharedModule,
   ],
-  exports: [HostDirective, ApplicationSearchableChooserComponent],
+  exports: [HostDirective, 
+    // ApplicationSearchableChooserComponent
+  ],
 })
 export class ComponentsModule {}
