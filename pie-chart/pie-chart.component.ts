@@ -3,9 +3,9 @@ import am5themes_Animated from '@amcharts/amcharts5/themes/Animated';
 import * as am5 from '@amcharts/amcharts5';
 import * as am5percent from '@amcharts/amcharts5/percent';
 import { Store } from '@ngrx/store';
-import { DashboardState } from 'src/app/Dashboard/data-access/dashboard.state';
+// import { DashboardState } from 'src/app/Dashboard/data-access/dashboard.state';
 import { IDynamicChart } from 'src/app/ct-shared/utils/models/dynamic.interface';
-import { getDashboardItem } from 'src/app/Dashboard/data-access/dashboard.selector';
+// import { getDashboardItem } from 'src/app/Dashboard/data-access/dashboard.selector';
 import {
   PIE_CHART_DATA,
   PIE_CHART_RADIAL_GRADIENT_ITEMS,
@@ -50,12 +50,17 @@ export class PieChartComponent
   public backgroundColor = 'transparent';
 
   private _sampleData: IPieChartContent[] = PIE_CHART_DATA;
+  //FIXME:
+  //@ts-ignore
 
   constructor(private store: Store<DashboardState>) {
     super();
   }
 
   ngAfterViewInit() {
+      //FIXME:
+  //@ts-ignore
+
     this.safeObservable(this.store.select(getDashboardItem(this.id)))
       // .pipe(
       //   map((item: any) => {

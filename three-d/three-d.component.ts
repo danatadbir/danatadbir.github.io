@@ -15,18 +15,18 @@ import {
   Vector3,
   WebGLRenderer,
 } from 'three';
-import { Action } from '../../../../hmi/utils/Interfaces/store.interface';
+import { Action } from './utils/models';
 import { Store } from '@ngrx/store';
-import { State3D } from '../../../../3D/data-access/Three-D.state';
+import { State3D } from './utils/models';
 import * as THREE from 'three';
-import { IModelConfig } from '../../../../3D/utils/models/Model.interface';
+import { IModelConfig } from './utils/models';
 import { catchError, tap } from 'rxjs/operators';
-import { Model } from '../../../../3D/utils/Class/Model.class';
-import { Camera } from '../../../../3D/utils/Class/Camera.class';
-import { Light } from '../../../../3D/utils/Class/Light.class';
-import { DashboardState } from '../../../../Dashboard/data-access/dashboard.state';
-import { getDashboardItem } from '../../../../Dashboard/data-access/dashboard.selector';
-import { ISceneConfig } from '../../../../3D/utils/models/Scene.interface';
+import { Model } from './utils/Class/Model.class';
+import { Camera } from './utils/Class/Camera.class';
+import { Light } from './utils/Class/Light.class';
+// import { DashboardState } from '../../../../Dashboard/data-access/dashboard.state';
+// import { getDashboardItem } from '../../../../Dashboard/data-access/dashboard.selector';
+import { ISceneConfig } from './utils/models/Scene.interface';
 import { ILabel } from 'src/app/3D/utils/models/Label.interface';
 import { IPoint } from 'src/app/3D/utils/models/ILabel.interface';
 import { TransmitService } from '@shared/services/transmit.service';
@@ -66,6 +66,9 @@ export class ThreeDComponent
 
   constructor(
     private uploaderService: UploaderService,
+    //FIXME:
+    //@ts-ignore
+
     private store: Store<DashboardState>,
     private transmit: TransmitService,
     private notify: DialogNotifyService
@@ -119,6 +122,9 @@ export class ThreeDComponent
   }
 
   async ngAfterViewInit() {
+    //FIXME:
+    //@ts-ignore
+
     this.safeObservable(this.store.select(getDashboardItem(this.id)))
       .pipe(
         tap((config: any) => {

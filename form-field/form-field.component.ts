@@ -8,7 +8,7 @@ import { CommonModule } from '@angular/common';
 import {
   DynamicFormControlType,
   IFormFieldConfig,
-} from '../../../utils/models/Form.interface';
+} from '@sharedComponents/models/Form.interface';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
@@ -17,10 +17,10 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
 import { Store } from '@ngrx/store';
-import { DashboardState } from '../../../../Dashboard/data-access/dashboard.state';
-import { getDashboardItem } from '../../../../Dashboard/data-access/dashboard.selector';
+// import { DashboardState } from '../../../../Dashboard/data-access/dashboard.state';
+// import { getDashboardItem } from '../../../../Dashboard/data-access/dashboard.selector';
 import { map } from 'rxjs/operators';
-import { updateFormField } from '../../../../Dashboard/data-access/dashboard.action';
+// import { updateFormField } from '../../../../Dashboard/data-access/dashboard.action';
 import { SharedFeaturesBaseComponent } from '../base-component/base-component.component';
 
 const materials = [
@@ -45,18 +45,25 @@ export class FormFieldComponent
 {
   errors: ValidationErrors | null;
   fromControlType = DynamicFormControlType;
+  //FIXME:
+  //@ts-ignore
 
   constructor(private store: Store<DashboardState>) {
     super();
   }
 
   ngOnInit(): void {
+    //FIXME:
+    //@ts-ignore
+
     this.safeObservable(this.store.select(getDashboardItem(this.id)))
       .pipe(
-        map((formField) => {
+        map(formField => {
           if (formField) {
             this.config = formField['content'].config;
             this.store.dispatch(
+              //FIXME:
+              //@ts-ignore
               updateFormField({
                 formField: { id: this.id, name: this.config.content.Name },
               })

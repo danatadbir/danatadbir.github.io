@@ -14,11 +14,11 @@ import {
   SliderContentSettings,
   sliderView,
   SliderViewSettings,
-} from '../../../utils/models/slider.interface';
-import { getDashboardItem } from '../../../../Dashboard/data-access/dashboard.selector';
+} from '@sharedComponents/models/slider.interface';
+// import { getDashboardItem } from '../../../../Dashboard/data-access/dashboard.selector';
 import { map } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
-import { DashboardState } from '../../../../Dashboard/data-access/dashboard.state';
+// import { DashboardState } from '../../../../Dashboard/data-access/dashboard.state';
 import { SharedFeaturesBaseComponent } from '../base-component/base-component.component';
 
 @Component({
@@ -42,12 +42,17 @@ export class SliderComponent
   slider!: noUiSlider.API;
 
   value: number = 0;
+  //FIXME:
+  //@ts-ignore
 
   constructor(private store: Store<DashboardState>) {
     super();
   }
 
   ngAfterViewInit() {
+      //FIXME:
+  //@ts-ignore
+
     this.safeObservable(this.store.select(getDashboardItem(this.id)))
       .pipe(
         map(item => {

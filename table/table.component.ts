@@ -1,23 +1,35 @@
-import { Component, ElementRef, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { IBorder } from "../../../../Dashboard/utils/Config";
-import { Store } from "@ngrx/store";
-import { DashboardState } from "../../../../Dashboard/data-access/dashboard.state";
-import { MatCheckboxChange } from "@angular/material/checkbox";
-import { getDashboardItem } from "../../../../Dashboard/data-access/dashboard.selector";
-import { map } from "rxjs/operators";
-import { MatSelectChange } from "@angular/material/select";
-import { ITableConfig, ITableContent, ITableView } from "../../../utils/models/Table.interface";
+import {
+  Component,
+  ElementRef,
+  Input,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
+import { IBorder } from '../models';
+import { Store } from '@ngrx/store';
+// import { DashboardState } from '../../../../Dashboard/data-access/dashboard.state';
+import { MatCheckboxChange } from '@angular/material/checkbox';
+// import { getDashboardItem } from '../../../../Dashboard/data-access/dashboard.selector';
+import { map } from 'rxjs/operators';
+import { MatSelectChange } from '@angular/material/select';
+import {
+  ITableConfig,
+  ITableContent,
+  ITableView,
+} from '@sharedComponents/models/Table.interface';
 import { SharedFeaturesBaseComponent } from '../base-component/base-component.component';
 import { PageEvent } from '@angular/material/paginator';
-
-
 
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
-  styleUrls: ['./table.component.scss']
+  styleUrls: ['./table.component.scss'],
 })
-export class TableComponent extends SharedFeaturesBaseComponent<ITableConfig> implements OnInit, OnDestroy {
+export class TableComponent
+  extends SharedFeaturesBaseComponent<ITableConfig>
+  implements OnInit, OnDestroy
+{
   @ViewChild('pagination', { static: true }) pagination: ElementRef;
   tableData: any[] = [];
   filtredTableData: any[] = [];
@@ -29,9 +41,9 @@ export class TableComponent extends SharedFeaturesBaseComponent<ITableConfig> im
     BorderColor: '#FFFFFF',
   };
   headerColor: string = '#FFFFFF';
-  bodyColor = '#FFFFFF'
-  headerTextColor = '#000000'
-  bodyTextColor = '#000000'
+  bodyColor = '#FFFFFF';
+  headerTextColor = '#000000';
+  bodyTextColor = '#000000';
   labelColor = '#0A0A0A';
 
   Search: boolean = true;
@@ -47,6 +59,8 @@ export class TableComponent extends SharedFeaturesBaseComponent<ITableConfig> im
   currentPage: number;
   totalSize: number;
   pageLength: number;
+  //FIXME:
+  //@ts-ignore
 
   constructor(private dashboardStore: Store<DashboardState>) {
     super();
@@ -54,27 +68,30 @@ export class TableComponent extends SharedFeaturesBaseComponent<ITableConfig> im
 
   ngOnInit() {
     if (this.id) {
-      this.safeObservable(this.dashboardStore.select(getDashboardItem(this.id))).pipe(
-        map(data => {
-          this.rawData = [];
-          const config = data['content'].config || this.config;
-          config.content.map((item: ITableContent) => {
-            this.rawData.push(
-              {
+      //FIXME:
+      //@ts-ignore
+
+      this.safeObservable(this.dashboardStore.select(getDashboardItem(this.id)))
+        .pipe(
+          map(data => {
+            this.rawData = [];
+            const config = data['content'].config || this.config;
+            config.content.map((item: ITableContent) => {
+              this.rawData.push({
                 id: new Date().getTime(),
                 name: item.outputs?.read?.name,
                 value: '-',
                 device: item.device,
                 topic: item.topic.name,
-                date: new Date()
+                date: new Date(),
               });
-          });
-          const view = config.view;
-          this.applyView(view);
-        })
-      ).subscribe();
-    } else
-      this.applyView(this.config.view);
+            });
+            const view = config.view;
+            this.applyView(view);
+          })
+        )
+        .subscribe();
+    } else this.applyView(this.config.view);
   }
 
   private applyView(config: ITableView) {
@@ -97,10 +114,8 @@ export class TableComponent extends SharedFeaturesBaseComponent<ITableConfig> im
       this.totalSize = 0;
       this.pageLength = this.rawData.length;
       this.tableData = this.rawData.slice(0, this.pageSize);
-    } else
-      this.tableData = this.rawData;
+    } else this.tableData = this.rawData;
   }
-
 
   applyFilter(filter: Event) {
     // @ts-ignore
@@ -109,26 +124,24 @@ export class TableComponent extends SharedFeaturesBaseComponent<ITableConfig> im
       item?.device?.toLowerCase().includes(value.toLowerCase())
     );
     this.pageLength = this.filtredTableData.length;
-    this.tableData = this.Paginator ? this.filtredTableData.slice(0, this.pageSize) : this.filtredTableData;
+    this.tableData = this.Paginator
+      ? this.filtredTableData.slice(0, this.pageSize)
+      : this.filtredTableData;
   }
 
   onChangeSelectAll(event: MatCheckboxChange) {
     event.checked ? this.selectAll() : this.deselectAll();
   }
 
-  private selectAll() {
-  }
+  private selectAll() {}
 
-  private deselectAll() {
-  }
+  private deselectAll() {}
 
   onSelectItemPerPage(event: MatSelectChange) {
     const selectedValue: number = event.value;
   }
 
-  onSelectData(id: string) {
-
-  }
+  onSelectData(id: string) {}
 
   handlePage(e: PageEvent) {
     this.currentPage = e.pageIndex;
@@ -137,5 +150,4 @@ export class TableComponent extends SharedFeaturesBaseComponent<ITableConfig> im
     const endIndex = startIndex + e.pageSize;
     this.tableData = this.rawData.slice(startIndex, endIndex);
   }
-
 }

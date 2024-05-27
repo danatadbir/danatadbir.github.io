@@ -43,8 +43,6 @@ import { ChangeSourceComponent } from './change-source/change-source.component';
 import { PieChartComponent } from './pie-chart/pie-chart.component';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { ComponentConfigDialogComponent } from 'src/app/ct-shared/data-access/component/component-config-dialog/component-config-dialog.component';
-// import { DynamicFormBuilderComponent } from '../dynamic-form-builder/dynamic-form-builder.component';
 import { ClusterColumnChartComponent } from './cluster-column-chart/cluster-column-chart.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatBadgeModule } from '@angular/material/badge';
@@ -97,8 +95,6 @@ const materials = [
     ThreeDComponent,
     ChangeSourceComponent,
     PieChartComponent,
-    ComponentConfigDialogComponent,
-    // ApplicationSearchableChooserComponent,
   ],
   imports: [
     CommonModule,
@@ -111,7 +107,7 @@ const materials = [
     SharedModule,
   ],
   exports: [HostDirective, 
-    // ApplicationSearchableChooserComponent
+    // 
   ],
 })
 export class ComponentsModule {}

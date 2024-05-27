@@ -1,16 +1,16 @@
 import { AfterViewInit, Component, Input, OnDestroy } from '@angular/core';
 
 import { Store } from '@ngrx/store';
-import { DashboardState } from '../../../../Dashboard/data-access/dashboard.state';
+// import { DashboardState } from '../../../../Dashboard/data-access/dashboard.state';
 
 import * as am5 from '@amcharts/amcharts5';
 import * as am5xy from '@amcharts/amcharts5/xy';
 import am5themes_Animated from '@amcharts/amcharts5/themes/Animated';
 
-import { IDynamicChart } from '../../../utils/models/dynamic.interface';
+import { IDynamicChart } from '@sharedComponents/models/dynamic.interface';
 import { Observable, of, Subject, take, takeUntil } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { getDashboardItem } from '../../../../Dashboard/data-access/dashboard.selector';
+// import { getDashboardItem } from '../../../../Dashboard/data-access/dashboard.selector';
 import { SharedFeaturesBaseComponent } from '../base-component/base-component.component';
 
 interface IDataSource {
@@ -34,16 +34,22 @@ export class DynamicChartComponent
   @Input() chartId: string;
 
   private _root: am5.Root;
-  public backgroundColor = 'transparent'
+  public backgroundColor = 'transparent';
+
+    //FIXME:
+  //@ts-ignore
 
   constructor(private store: Store<DashboardState>) {
     super();
   }
 
   ngAfterViewInit() {
+      //FIXME:
+  //@ts-ignore
+
     this.safeObservable(this.store.select(getDashboardItem(this.id)))
       .pipe(
-        map((item) => {
+        map(item => {
           let config = this.config;
           if (item?.['content']?.config) {
             config = item['content'].config;
@@ -139,11 +145,11 @@ export class DynamicChartComponent
               })
             );
           }
-          config.content.forEach((content) => {
+          config.content.forEach(content => {
             this.safeObservable(this.generateData(nowDate))
               .pipe(
-                map((history) => {
-                  history.map((data) => {
+                map(history => {
+                  history.map(data => {
                     rawData.push({
                       date: data.date,
                       [content.outputs.read.name]: data.value,
@@ -221,7 +227,7 @@ export class DynamicChartComponent
                   return series;
                 }),
                 take(1),
-                map((series) => {
+                map(series => {
                   setInterval(() => {
                     this.addData(series, Math.round(Math.random() * 800 + 400));
                   }, 3000);

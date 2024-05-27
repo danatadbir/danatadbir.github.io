@@ -5,8 +5,8 @@ import am5themes_Animated from '@amcharts/amcharts5/themes/Animated';
 import { Store } from '@ngrx/store';
 import { Subscription, map } from 'rxjs';
 
-import { getDashboardItem } from 'src/app/Dashboard/data-access/dashboard.selector';
-import { DashboardState } from 'src/app/Dashboard/data-access/dashboard.state';
+// import { getDashboardItem } from 'src/app/Dashboard/data-access/dashboard.selector';
+// import { DashboardState } from 'src/app/Dashboard/data-access/dashboard.state';
 
 import {
   IProgressSeries,
@@ -35,12 +35,17 @@ export class ProgressBarComponent
 
   private _root: am5.Root;
   public backgroundColor = 'transparent';
+  //FIXME:
+  //@ts-ignore
 
   constructor(private store: Store<DashboardState>) {
     super();
   }
 
   ngAfterViewInit() {
+      //FIXME:
+  //@ts-ignore
+
     this.safeObservable(this.store.select(getDashboardItem(this.id)))
       .pipe(
         map(item => {

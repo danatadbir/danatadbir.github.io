@@ -1,13 +1,13 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { DashboardState } from '../../../../Dashboard/data-access/dashboard.state';
-import { getDashboardItem } from '../../../../Dashboard/data-access/dashboard.selector';
+// import { DashboardState } from '../../../../Dashboard/data-access/dashboard.state';
+// import { getDashboardItem } from '../../../../Dashboard/data-access/dashboard.selector';
 import { map } from 'rxjs/operators';
 import {
   ICard,
   ICardContent,
   ICardView,
-} from '../../../utils/models/card.interface';
+} from '@sharedComponents/models/card.interface';
 import { Subscription } from 'rxjs';
 import { SharedFeaturesBaseComponent } from '../base-component/base-component.component';
 
@@ -34,12 +34,17 @@ export class CardComponent
   backgroundColor = '#6F90D5';
   borderColor = '#6F90D5';
 
+  //FIXME:
+  //@ts-ignore
   constructor(private dashboardStore: Store<DashboardState>) {
     super();
   }
 
   ngOnInit() {
     if (this.id) {
+      //FIXME:
+      //@ts-ignore
+
       this.safeObservable(this.dashboardStore.select(getDashboardItem(this.id)))
         .pipe(
           map(data => {

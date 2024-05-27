@@ -8,8 +8,8 @@ import { SharedFeaturesBaseComponent } from '../base-component/base-component.co
 import { MapInfoWindow, MapMarker } from '@angular/google-maps';
 import { map } from 'rxjs';
 import { Store } from '@ngrx/store';
-import { DashboardState } from 'src/app/Dashboard/data-access/dashboard.state';
-import { getDashboardItem } from 'src/app/Dashboard/data-access/dashboard.selector';
+// import { DashboardState } from 'src/app/Dashboard/data-access/dashboard.state';
+// import { getDashboardItem } from 'src/app/Dashboard/data-access/dashboard.selector';
 import { IMap } from 'src/app/ct-shared/utils/models/map.interface';
 
 interface IMarker {
@@ -62,6 +62,8 @@ export class MapComponent
     maxWidth: 200,
   };
   infoWindowOpen: { [key: string]: boolean } = {};
+  //FIXME:
+  //@ts-ignore
 
   constructor(private store: Store<DashboardState>) {
     super();
@@ -81,6 +83,9 @@ export class MapComponent
   }
 
   ngAfterViewInit() {
+      //FIXME:
+  //@ts-ignore
+
     this.safeObservable(this.store.select(getDashboardItem(this.id)))
       .pipe(
         map(item => {

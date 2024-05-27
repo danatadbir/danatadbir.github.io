@@ -10,15 +10,15 @@ import * as am5 from '@amcharts/amcharts5';
 import * as am5xy from '@amcharts/amcharts5/xy';
 import am5themes_Animated from '@amcharts/amcharts5/themes/Animated';
 import { Store } from '@ngrx/store';
-import { DashboardState } from '../../../../Dashboard/data-access/dashboard.state';
-import { getDashboardItem } from '../../../../Dashboard/data-access/dashboard.selector';
+// import { DashboardState } from '../../../../Dashboard/data-access/dashboard.state';
+// import { getDashboardItem } from '../../../../Dashboard/data-access/dashboard.selector';
 import { map } from 'rxjs/operators';
 import { Color } from '@amcharts/amcharts5';
 import {
   IColumnChart,
   IColumnChartContent,
   IMultiColumnChartContent,
-} from '../../../utils/models/column.interface';
+} from '@sharedComponents/models/column.interface';
 import { Subscription, interval } from 'rxjs';
 import { SharedFeaturesBaseComponent } from '../base-component/base-component.component';
 
@@ -96,6 +96,8 @@ export class ClusterColumnChartComponent
       ],
     },
   ];
+  //FIXME:
+  //@ts-ignore
 
   constructor(private store: Store<DashboardState>) {
     super();
@@ -109,6 +111,9 @@ export class ClusterColumnChartComponent
 
   ngAfterViewInit() {
     // this.test();
+      //FIXME:
+  //@ts-ignore
+
     this.safeObservable(this.store.select(getDashboardItem(this.id)))
       .pipe(
         map((item: any) => {

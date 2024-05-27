@@ -1,5 +1,5 @@
 import {Directive, ElementRef, Input, SimpleChanges} from '@angular/core';
-import {IBorder} from "../../../Dashboard/utils/Config";
+import {IBorder} from "../models";
 
 @Directive({
   selector: '[Border]'
