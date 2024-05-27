@@ -69,7 +69,7 @@ const materials = [
   MatPaginatorModule,
   MatProgressSpinnerModule,
   MatBadgeModule,
-  MatSnackBarModule
+  MatSnackBarModule,
 ];
 
 @NgModule({
@@ -106,8 +106,9 @@ const materials = [
     // DynamicFormBuilderComponent,
     SharedModule,
   ],
-  exports: [HostDirective, 
-    // 
+  exports: [
+    HostDirective,
+    //
   ],
 })
 export class ComponentsModule {}
