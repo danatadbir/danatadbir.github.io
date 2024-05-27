@@ -1,0 +1,95 @@
+.container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: 2fr 10fr;
+
+  .table-action-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.5rem;
+  }
+
+}
+
+
+.table-wrapper {
+  overflow: auto;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+table {
+  width: 100%;
+  height: 100%;
+  border-collapse: collapse;
+}
+
+thead th {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid #ddd;
+  background-color: #6f90d5;
+  color: #fff;
+
+  &:first-child {
+    border-radius: 5px 0 0 0;
+  }
+
+  &:last-child {
+    border-radius: 0 5px 0 0;
+  }
+}
+
+tbody {
+  overflow-y: scroll;
+  height: 100%;
+}
+
+.paginator {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+  position: sticky;
+  bottom: 0;
+  z-index: 100;
+  background-color: #f7f7f7;
+  padding: 0.5rem;
+}
+
+.options {
+  border: solid thin #eeeeee;
+  width: 20%;
+}
+
+tbody td {
+  border-bottom: 1px solid #ddd;
+  border-top: 1px solid #ddd;
+  text-align: center;
+}
+
+td, th {
+  padding: 0.2rem;
+
+  .unit {
+    font-size: 0.75em;
+  }
+}
+
+.mat-checkbox .mat-checkbox-frame {
+  transform: scale(2);
+}
+
+.mat-checkbox-checked .mat-checkbox-background {
+  transform: scale(2);
+}

@@ -1,0 +1,22 @@
+<main class="modelContainer" #container>
+  <div class="loading" *ngIf="loading">
+    <div>Loading...</div>
+    <mat-spinner></mat-spinner>
+  </div>
+  <canvas #canvas class="wbgl"></canvas>
+  <div *ngFor="let item of details" class="point1" [ngClass]="item.class">
+    <div class="label" [class.has-image]="item?.view?._imageIcon">
+      <ng-container *ngIf="item?.view?._imageIcon; else labelText">
+        <img [src]="item.view._imageIcon" [alt]="item.title" />
+      </ng-container>
+      <ng-template #labelText>
+        <label>{{item.title}}</label>
+      </ng-template>
+      <!--            <ng-container *ngIf="item.view.icon">-->
+      <!--              <img [src]="-->
+      <!--              loadUrl(item.view.icon) | async" [alt]="item.title">-->
+      <!--            </ng-container>-->
+    </div>
+    <div class="text" *ngIf="item.action.type === Action.hover">{{item?.action?.description || ''}}</div>
+  </div>
+</main>

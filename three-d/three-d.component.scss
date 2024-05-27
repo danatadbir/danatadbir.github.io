@@ -1,0 +1,128 @@
+main {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  .wbgl {
+    position: absolute;
+    left: 0;
+    overflow: hidden;
+    width: 100% !important;
+    height: 100% !important;
+  }
+}
+
+.loading {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  mat-spinner {
+    width: 50px !important;
+    height: 50px !important;
+    margin-top: 0.8em;
+  }
+}
+.point {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  left: 50%;
+  top: 50%;
+  background-color: #ffffff;
+  transform: scale(0, 0);
+  transition: transform 0.3s;
+
+  button {
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    background: #000000aa;
+    border: 1px solid #ffffff77;
+    color: #ffffff;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: 100;
+    font-size: 1em;
+    opacity: 0;
+    transition: opacity 0.3s;
+    opacity: 1;
+
+    &.show {
+      opacity: 1;
+    }
+  }
+
+  &.visible {
+    transform: scale(1, 1);
+  }
+}
+
+.point1 {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  background-color: #ffffff;
+  /* pointer-events: none; */
+  .label {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    padding: 1rem;
+    background: #00000077;
+    border-radius: 100%;
+    border: 1px solid #ffffff;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transform: scale(0, 0);
+    transition: transform 0.3s;
+    &.has-image {
+      background-color: transparent;
+      border-color: transparent;
+      border-radius: unset;
+      color: #000000 !important;
+      width: unset;
+      height: unset;
+    }
+    img {
+      pointer-events: none;
+      max-height: 2em;
+    }
+  }
+
+  .text {
+    position: absolute;
+    top: 40px;
+    width: 200px;
+    padding: 20px;
+    border-radius: 4px;
+    background: #000000aa;
+    border: 1px solid #ffffff77;
+    color: #ffffff;
+    line-height: 1.3em;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: 100;
+    font-size: 14px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+  }
+
+  &.visible .label {
+    transform: scale(1, 1);
+  }
+}
+
+.point1:hover {
+  .text {
+    opacity: 1;
+  }
+}

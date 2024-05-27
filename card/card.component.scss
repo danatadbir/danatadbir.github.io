@@ -1,0 +1,41 @@
+@mixin center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.box {
+  color: #fff;
+  width: 100%;
+  height: 100%;
+  border-radius: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+
+  div {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  h4 {
+    width: 90%;
+    margin: 0 auto;
+    &.TopCenter {
+      text-align: center;
+    }
+    &.TopStart {
+      text-align: start;
+    }
+
+    &.TopEnd {
+      text-align: end;
+    }
+    .subtitle {
+      opacity: 0.6;
+      font-size: 0.7em;
+      display: block;
+    }
+  }
+}

@@ -1,0 +1,130 @@
+<ng-container [ngSwitch]="config.content.type">
+  <div class="dynamicForm">
+    <ng-container *ngSwitchCase="'text'">
+      <!--      <mat-form-field [appearance]="config.view.Appearance.appearance">-->
+      <!--        <mat-label>{{ config.view.Labels.label }}</mat-label>-->
+      <!--        <input matInput "color: #FFFFFF">-->
+      <!--        <mat-hint *ngIf="config.view.Labels.hint">{{ config.view.Labels.hint }}</mat-hint>-->
+      <!--      </mat-form-field>-->
+      <div class="form-group">
+        <div class="input">
+          <label *ngIf="config.view.Labels">{{ config.view.Labels.label }}</label>
+          <input type="text">
+        </div>
+        <div class="hint" *ngIf="config.view?.Labels?.hint">{{ config.view.Labels.hint }}</div>
+      </div>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'number'">
+      <!--      <mat-form-field [appearance]="config.view.Appearance.appearance" class="full-width">-->
+      <!--        <mat-label>{{ config.view.Labels.label }}</mat-label>-->
+      <!--        <input matInput type="number" "color: #FFFFFF"/>-->
+      <!--        <mat-hint *ngIf="config.view.Labels.hint">{{ config.view.Labels.hint }}</mat-hint>-->
+      <!--        <mat-error *ngIf="errors">-->
+      <!--          {{ errors }}-->
+      <!--        </mat-error>-->
+      <!--      </mat-form-field>-->
+      <div class="form-group">
+        <div class="input">
+          <label *ngIf="config.view?.Labels">{{ config.view.Labels.label }}</label>
+          <input type="number">
+        </div>
+        <div class="hint" *ngIf="config.view?.Labels?.hint">{{ config.view.Labels.hint }}</div>
+      </div>
+    </ng-container>
+
+    <!--    <ng-container *ngSwitchCase="fromControlType.TEXTAREA">-->
+    <!--      <mat-form-field [appearance]="config.view.Appearance.appearance">-->
+    <!--        <mat-label>{{ config.view.Labels.label }}</mat-label>-->
+    <!--        <textarea matInput> </textarea>-->
+    <!--        <mat-hint *ngIf="config.view.Labels.hint">{{ config.view.Labels.hint }}</mat-hint>-->
+    <!--        <mat-error *ngIf="errors">-->
+    <!--          {{ errors }}-->
+    <!--        </mat-error>-->
+    <!--      </mat-form-field>-->
+    <!--    </ng-container>-->
+
+    <!--    <ng-container *ngSwitchCase="fromControlType.EMAIL">-->
+    <!--      <mat-form-field [appearance]="config.view.Appearance.appearance">-->
+    <!--        <mat-label>{{ config.view.Labels.label }}</mat-label>-->
+    <!--        <input type="email" matInput/>-->
+    <!--        <mat-hint *ngIf="config.view.Labels.hint">{{ config.view.Labels.hint }}</mat-hint>-->
+    <!--        <mat-error *ngIf="errors">-->
+    <!--          {{ errors }}-->
+    <!--        </mat-error>-->
+    <!--      </mat-form-field>-->
+    <!--    </ng-container>-->
+
+    <!--    <ng-container *ngSwitchCase="fromControlType.CHECKBOX">-->
+    <!--      <div class="mat-form-field">-->
+    <!--        <mat-checkbox>{{-->
+    <!--          config.view.Labels.label-->
+    <!--          }}</mat-checkbox>-->
+    <!--        <mat-hint *ngIf="config.view.Labels.hint">{{ config.view.Labels.hint }}</mat-hint>-->
+    <!--        <mat-error *ngIf="errors">-->
+    <!--          {{ errors }}-->
+    <!--        </mat-error>-->
+    <!--      </div>-->
+    <!--    </ng-container>-->
+
+    <!--    <ng-container *ngSwitchCase="fromControlType.SELECT">-->
+    <!--      <mat-form-field [appearance]="config.view.Appearance.appearance">-->
+    <!--        <mat-label>{{ config.view.Labels.label }}</mat-label>-->
+    <!--        <mat-select>-->
+    <!--          <mat-option-->
+    <!--            *ngFor="let item of config.metaData.options"-->
+    <!--            [value]="item.value"-->
+    <!--          >-->
+    <!--            {{ item.name }}-->
+    <!--          </mat-option>-->
+    <!--        </mat-select>-->
+
+    <!--        <mat-hint *ngIf="config.view.Labels.hint">{{ config.view.Labels.hint }}</mat-hint>-->
+    <!--        <mat-error *ngIf="errors">-->
+    <!--          {{ errors }}-->
+    <!--        </mat-error>-->
+    <!--      </mat-form-field>-->
+    <!--    </ng-container>-->
+
+    <!--    <ng-container *ngSwitchCase="fromControlType.ARRAY">-->
+    <!--      <div class="form-control-array">-->
+    <!--        <div class="row">-->
+    <!--          <mat-form-field [appearance]="config.view.Appearance.appearance">-->
+    <!--            <mat-label>{{ config.view.Labels.label }}</mat-label>-->
+    <!--            <input matInput type="tel"/>-->
+    <!--            <mat-hint *ngIf="config.view.Labels.hint">{{ config.view.Labels.hint }}</mat-hint>-->
+    <!--            <mat-error *ngIf="errors">-->
+    <!--              {{ errors }}-->
+    <!--            </mat-error>-->
+    <!--          </mat-form-field>-->
+    <!--          &lt;!&ndash;<mat-icon (click)="addToControl(config.name)">add_circle</mat-icon>&ndash;&gt;-->
+    <!--        </div>-->
+    <!--        &lt;!&ndash; Show Data &ndash;&gt;-->
+    <!--        <div class="added-item">-->
+    <!--          <ng-container-->
+    <!--            *ngFor="let item of form.get(config.name + 'Array')?.value"-->
+    <!--          >-->
+    <!--            <li>{{ item }}</li>-->
+    <!--          </ng-container>-->
+    <!--        </div>-->
+    <!--      </div>-->
+    <!--    </ng-container>-->
+
+    <!--    <ng-container *ngSwitchCase="fromControlType.DATE">-->
+    <!--      <mat-form-field [appearance]="config.view.Appearance.appearance">-->
+    <!--        <mat-label>{{ config.view.Labels.label }}</mat-label>-->
+    <!--        <input matInput [matDatepicker]="releasedAtPicker" [disabled]="true"/>-->
+    <!--        <mat-datepicker-toggle matSuffix [for]="releasedAtPicker">-->
+    <!--        </mat-datepicker-toggle>-->
+    <!--        <mat-datepicker [disabled]="false" #releasedAtPicker>-->
+    <!--        </mat-datepicker>-->
+    <!--        <mat-hint *ngIf="config.view.Labels.hint">{{ config.view.Labels.hint }}</mat-hint>-->
+    <!--        <mat-error *ngIf="errors">-->
+    <!--          {{ errors }}-->
+    <!--        </mat-error>-->
+    <!--      </mat-form-field>-->
+    <!--    </ng-container>-->
+
+    <div *ngSwitchDefault>Unknown type</div>
+  </div>
+</ng-container>

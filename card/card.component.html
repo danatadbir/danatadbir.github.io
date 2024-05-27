@@ -1,0 +1,10 @@
+<div class="box" Card [backgroundColor]="backgroundColor" [borderColor]="borderColor">
+  <h4 Text [color]="titleColor" [ngClass]="[titlePosition]" [fontSize]="titleSize">
+    {{Title}}
+  <div class="subtitle" *ngIf="Subtitle && Subtitle.length >0">{{Subtitle}}</div>
+  </h4>
+  <div>
+    <h4 Text [color]="labelColor" [fontSize]="labelSize">{{Label}}</h4>
+    <h4 Text [color]="unitColor" [fontSize]="unitSize">{{Unit}}</h4>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="range-slider-cmp-container w-100 h-100">
+
+    <!-- StepUp -->
+    <button *ngIf="config?.view?.Button?.showButtons" class="range-action-btn"
+      [ngStyle]="{'background-color': config.view.Button.btnBgColor, 'color': config.view.Button.btnColor}"
+      (click)="stepUp()">
+      +
+    </button>
+
+    <!-- Slider -->
+    <div #sliderElement [id]="widgetId" class="slider "
+      [class.main-slider]="config.view.Chart.orientation === 'vertical'"></div>
+
+    <!-- StepDown -->
+    <button *ngIf="config?.view?.Button?.showButtons" class="range-action-btn mt-4"
+      [ngStyle]="{'background-color': config.view.Button.btnBgColor, 'color': config.view.Button.btnColor}"
+      (click)="stepDown()">
+      -
+    </button>
+
+    <!-- Value -->
+    <input type="text" class="value-box" [(ngModel)]="value" (ngModelChange)="onInputChangeValue()">
+
+    <!-- Title -->
+    <h2 class="text-center m-0" *ngIf="config?.view?.Labels?.title">{{config.view.Labels.title}}</h2>
+
+  </div>
+</div>

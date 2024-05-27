@@ -1,0 +1,13 @@
+<google-map *ngIf="mapOptions" [id]="'map_' + this.id" [center]="center" [zoom]="zoom" [options]="mapOptions">
+    <map-marker *ngFor='let mark of markers; let i = index' #marker="mapMarker" [position]="mark.position"
+        [icon]="mark.color" (mapClick)="openInfoWindow(marker, i)">
+        <map-info-window [options]="infoWindowOptions" [position]="mark.position">
+            <div>
+                <h4>{{ mark.name }}</h4>
+                <p *ngIf="mark.topic">Topic: {{mark.topic}}</p>
+                <p *ngIf="mark.read">Read from: {{mark.read}}</p>
+                <p *ngIf="mark.write">Write on: {{mark.write}}</p>
+            </div>
+        </map-info-window>>
+    </map-marker>
+</google-map>

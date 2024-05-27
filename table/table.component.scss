@@ -1,0 +1,84 @@
+.container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  padding: unset;
+  display: flex;
+  flex-direction: column;
+  
+  .table-action-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.5rem;
+  }
+
+}
+
+
+.table-wrapper {
+  overflow: auto;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+table {
+  width: 100%;
+  // height: 100%;
+  border-collapse: collapse;
+}
+
+thead th {
+  position: sticky;
+  top: 0;
+  border-bottom: 1px solid #ddd;
+
+  &:first-child {
+    border-radius: 5px 0 0 0;
+  }
+
+  &:last-child {
+    border-radius: 0 5px 0 0;
+  }
+}
+
+tbody {
+  overflow-y: scroll;
+  height: 100%;
+}
+
+.paginator {
+  width: 100%;
+  position: sticky;
+  bottom: 0;
+  z-index: 100;
+  background-color: #f7f7f7;
+  padding: 0.5rem;
+}
+
+.options {
+  border: solid thin #eeeeee;
+  width: 20%;
+}
+
+tbody td {
+  border-bottom: 1px solid #ddd;
+  border-top: 1px solid #ddd;
+  text-align: center;
+}
+
+td, th {
+  padding: 0.2rem;
+}
+
+.mat-checkbox .mat-checkbox-frame {
+  transform: scale(2);
+}
+
+.mat-checkbox-checked .mat-checkbox-background {
+  transform: scale(2);
+}
