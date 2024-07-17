@@ -549,7 +549,7 @@ class ApproveCoursesComponent {
             'status',
             'opration',
         ];
-        this.src = '../../../../../assets/videos/x.mp4';
+        this.src = './assets/videos/x.mp4';
         this.config = {
             controls: true,
             autoplay: false,
@@ -569,7 +569,7 @@ class ApproveCoursesComponent {
             autoplay: true,
             controls: true,
             sources: [
-                { src: '../../../../../assets/videos/x.mp4', type: 'video/mp4' },
+                { src: './assets/videos/x.mp4', type: 'video/mp4' },
             ],
             plugin: {
                 panorama: {
