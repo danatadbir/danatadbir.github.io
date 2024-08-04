@@ -1,0 +1,22 @@
+{
+    "HOME": "Home",
+    "ENGLISH": "English",
+    "PERSIAN": "Persian",
+    "DASHBOARD": "Dashboard",
+    "Card_Member": "Card Member",
+    "Card_Gift": "Card Gift",
+    "SHOP": "Shop",
+    "Shop_Bog": "Shop Bog",
+    "Shop_Car": "Shop Car",
+    "Shop_Basket": "Shop Basket",
+    "LTR": "LTR",
+    "RTL": "RTL",
+    "mini": "Mini",
+    "compact": "Compact",
+    "full": "Full",
+    "static": "Static",
+    "Dashboard_Setting": "Dashboard Setting",
+    "Layout_Theme": "Layout Theme",
+    "Menu_Setting": "Menu Setting",
+    "Layout_Direction": "Layout Direction"
+}

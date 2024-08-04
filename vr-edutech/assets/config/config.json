@@ -1,0 +1,23 @@
+[
+    {
+        "moduleName": "testb",
+        "moduleID": "testb_1",
+        "id": "1",
+        "canLoad": false,
+        "canActive": true,
+        "componnets": [
+            {
+                "compName": "compb1",
+                "compID": "compb1_axcs",
+                "canLoad": false,
+                "canActive": true
+            },
+            {
+                "compName": "compb2",
+                "compID": "compb2_3xcs",
+                "canLoad": false,
+                "canActive": true
+            }
+        ]
+    }
+]
