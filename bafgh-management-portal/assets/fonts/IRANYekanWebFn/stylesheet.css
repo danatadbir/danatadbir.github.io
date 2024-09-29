@@ -1,0 +1,72 @@
+@font-face {
+    font-family: 'IRANYekanWebFn';
+    src: url('IRANYekanWebFn-Black.woff2') format('woff2'),
+        url('IRANYekanWebFn-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'IRANYekanWebFn';
+    src: url('IRANYekanWebFn-Bold.woff2') format('woff2'),
+        url('IRANYekanWebFn-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'IRANYekanWebFn ExtraBlack';
+    src: url('IRANYekanWebFn-ExtraBlack.woff2') format('woff2'),
+        url('IRANYekanWebFn-ExtraBlack.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'IRANYekanWebFn';
+    src: url('IRANYekanWebFn-ExtraBold.woff2') format('woff2'),
+        url('IRANYekanWebFn-ExtraBold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'IRANYekanWebFn';
+    src: url('IRANYekanWebFn-Light.woff2') format('woff2'),
+        url('IRANYekanWebFn-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'IRANYekanWebFn';
+    src: url('IRANYekanWebFn-Medium.woff2') format('woff2'),
+        url('IRANYekanWebFn-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'IRANYekanWebFn';
+    src: url('IRANYekanWebFn.woff2') format('woff2'),
+        url('IRANYekanWebFn.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'IRANYekanWebFn';
+    src: url('IRANYekanWebFn-Thin.woff2') format('woff2'),
+        url('IRANYekanWebFn-Thin.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
